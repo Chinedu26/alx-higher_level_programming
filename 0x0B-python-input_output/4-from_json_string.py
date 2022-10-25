@@ -1,19 +1,11 @@
 #!/usr/bin/python3
-
+"""
+contains the json str function
 """
 
-Contains the read_file function
-
-"""
+import json
 
 
-
-
-
-def read_file(filename=""):
-
-        """""reads a text file(UTF8) and prints it to stdout"""
-
-            with open(filename, "r", encoding="utf-8") as f:
-
-                        print(f.read(), end="")
+def from_json_string(my_str):
+    """returns an object represented by a JSON string"""
+    return json.loads(my_str)
