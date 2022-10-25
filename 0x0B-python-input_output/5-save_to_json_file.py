@@ -1,19 +1,12 @@
 #!/usr/bin/python3
-
+"""
+function that writes an Object to a text file
 """
 
-Contains the read_file function
-
-"""
+import json
 
 
-
-
-
-def read_file(filename=""):
-
-        """""reads a text file(UTF8) and prints it to stdout"""
-
-            with open(filename, "r", encoding="utf-8") as f:
-
-                        print(f.read(), end="")
+def save_to_json_file(my_obj, filename):
+    """Object to a text file, using a JSON representation"""
+    with open(filename, 'w', encoding='utf-8') as f:
+        json.dump(my_obj, f)
