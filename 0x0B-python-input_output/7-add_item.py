@@ -1,19 +1,20 @@
 #!/usr/bin/python3
-
+"""
+Script that adds all arguments to a Python list, and then saves them to a file
 """
 
-Contains the read_file function
+from sys import argv
+save_to_json_file = __import__("5-save_to_json_file").save_to_json_file
+load_from_json_file = __import__("6-load_from_json_file").load_from_json_file
 
-"""
+filename = "add_item.json"
 
+try:
+    json_list = load_from_json_file(filename)
+except FileNotFoundError:
+    json_list = []
 
+for arg in argv[1:]:
+    json_list.append(arg)
 
-
-
-def read_file(filename=""):
-
-        """""reads a text file(UTF8) and prints it to stdout"""
-
-            with open(filename, "r", encoding="utf-8") as f:
-
-                        print(f.read(), end="")
+save_to_json_file(json_list, filename)
