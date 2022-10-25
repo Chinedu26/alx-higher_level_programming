@@ -1,19 +1,20 @@
 #!/usr/bin/python3
-
-"""
-
-Contains the read_file function
-
-"""
+"""Defines a Pascal's Triangle function."""
 
 
+def pascal_triangle(n):
+    """Represent Pascal's Triangle of size n.
+    Returns a list of lists of integers representing the triangle.
+    """
+    if n <= 0:
+        return []
 
-
-
-def read_file(filename=""):
-
-        """""reads a text file(UTF8) and prints it to stdout"""
-
-            with open(filename, "r", encoding="utf-8") as f:
-
-                        print(f.read(), end="")
+    triangles = [[1]]
+    while len(triangles) != n:
+        tri = triangles[-1]
+        tmp = [1]
+        for i in range(len(tri) - 1):
+            tmp.append(tri[i] + tri[i + 1])
+        tmp.append(1)
+        triangles.append(tmp)
+    return triangles
