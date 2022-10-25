@@ -1,19 +1,11 @@
 #!/usr/bin/python3
-
 """
-
-Contains the read_file function
-
+Contains the "class_to_json" function
 """
 
 
-
-
-
-def read_file(filename=""):
-
-        """""reads a text file(UTF8) and prints it to stdout"""
-
-            with open(filename, "r", encoding="utf-8") as f:
-
-                        print(f.read(), end="")
+def class_to_json(obj):
+    """returns the dictionary description with simple data structure
+    (list, dictionary, string, integer and boolean)
+    for JSON serialization of an object"""
+    return obj.__dict__
