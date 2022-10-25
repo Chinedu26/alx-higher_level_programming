@@ -1,19 +1,10 @@
 #!/usr/bin/python3
-
 """
-
-Contains the read_file function
-
+function that appends a string
 """
 
 
-
-
-
-def read_file(filename=""):
-
-        """""reads a text file(UTF8) and prints it to stdout"""
-
-            with open(filename, "r", encoding="utf-8") as f:
-
-                        print(f.read(), end="")
+def append_write(filename="", text=""):
+    """eturns the number of characters added:"""
+    with open(filename, 'a', encoding='utf=8') as f:
+        return f.write(text)
